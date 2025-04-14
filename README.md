@@ -1,8 +1,6 @@
 # SOC Automation Project
 
-A Security Operations Center, or SOC for short, is a centralized team of IT Security professionals who monitor and manage an organization’s infrastructure. In this series of write-ups, we’ll build one! In part 1 we’ll look at a basic design, install Windows 10 and sysmon, and deploy two VMs for wazuh and TheHive using Linode.
-
-First, we need a design or a data flow for our SOC. I spent 5 minutes on draw.io and came up with this
+A Security Operations Center, or SOC for short, is a centralized team of IT Security professionals who monitor and manage an organization’s infrastructure. In this series of write-ups, we’ll build one! To begin, we’ll look at a basic design, install Windows 10 and sysmon, and deploy two VMs for Wazuh and TheHive using Linode.
 
 ![](https://github.com/prakharvr02/SOC-Automation/blob/main/Images/soc%20automation%20diagram.png)
 
@@ -246,6 +244,8 @@ In the sidebar on the left, make sure wazuh-alerts-* is selected. At
 
 With the search-bar at the top search for sysmon to see sysmon events
 
+![](https://github.com/prakharvr02/SOC-Automation/blob/main/Images/22.png)
+
 As you can see, we already have 53 sysmon logs ingested into wazuh.
 
 Now, let’s generate some telemetry with mimikatz. Disable the AV or add your downloads folder to exclusion in your win10 client or it will flag and delete mimikatz. Download mimikatz from here. Under releases, download mimikatz_trunk.zip. You may also have to disable security protection from the browser.
@@ -274,7 +274,7 @@ systemctl restart filebeat
 Now, head to wazuh dashboard and on the sidemenu on the left, click on stack management. Click on Index Patterns, and create Index. Then, type wazuh-archives-* behind the * that’s already there, it should look like this:
 
 
-![](https://github.com/prakharvr02/SOC-Automation/blob/main/Images/21.png)
+![](https://github.com/prakharvr02/SOC-Automation/blob/17496cf1b61b30a902879751a78632bcfee9b060/Images/9th.png)
 
 Click on the next step. For the time field, scroll down and click on timestamp, and hit create index. Then, in the hamburger menu on the left, click on discover, and where it says wazuh-alerts-*, click on the down arrow next to it and select our newly created index.
 
@@ -304,7 +304,7 @@ Now go to your home page, and head to security events, there should be none. Now
 
 As you can see, wazuh successfully detected mimikatz:
 
-![](https://github.com/prakharvr02/SOC-Automation/blob/17496cf1b61b30a902879751a78632bcfee9b060/Images/9th.png)
+![](https://github.com/prakharvr02/SOC-Automation/blob/main/Images/21.png)
 
 Head to shuffler.io and create an account. Then create a new workflow and name it whatever you want.
 
