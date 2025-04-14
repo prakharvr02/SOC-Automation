@@ -274,7 +274,7 @@ systemctl restart filebeat
 Now, head to wazuh dashboard and on the sidemenu on the left, click on stack management. Click on Index Patterns, and create Index. Then, type wazuh-archives-* behind the * that’s already there, it should look like this:
 
 
-![](https://github.com/prakharvr02/SOC-Automation/blob/17496cf1b61b30a902879751a78632bcfee9b060/Images/9th.png)
+![](https://github.com/prakharvr02/SOC-Automation/blob/main/Images/21.png)
 
 Click on the next step. For the time field, scroll down and click on timestamp, and hit create index. Then, in the hamburger menu on the left, click on discover, and where it says wazuh-alerts-*, click on the down arrow next to it and select our newly created index.
 
